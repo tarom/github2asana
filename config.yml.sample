@@ -1,0 +1,11 @@
+github:
+  name: 'example'
+  token: '00000change_me00000'
+  milestone_id: 1 
+  repos: 'testrepos'
+asana:
+  token: '00000change_me00000'
+#  tag_id: 1111111111
+  project_id: 11111111
+assignees:
+  username: 11111111111
