@@ -22,6 +22,7 @@ workspace = Asana::Workspace.all.first
 project = Asana::Project.find(CONFIG['asana']['project_id'])
 
 issues.each do |issue|
+  next if CONFIG['github']['min_number'] and CONFIG['github']['min_number'].to_i > issue['number'].to_i
   assignee =
     if issue['assignee']
       CONFIG['assignees'][issue['assignee']['login']]

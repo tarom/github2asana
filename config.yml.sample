@@ -3,6 +3,7 @@ github:
   token: '00000change_me00000'
   milestone_id: 1 
   repos: 'testrepos'
+  min_number:
 asana:
   token: '00000change_me00000'
 #  tag_id: 1111111111
