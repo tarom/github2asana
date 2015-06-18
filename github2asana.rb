@@ -16,7 +16,12 @@ Asana.configure do |client|
 end
 octokit = Octokit::Client.new(access_token: CONFIG['github']['token'])
 
-issues = octokit.list_issues("#{CONFIG['github']['name']}/#{CONFIG['github']['repos']}", milestone: CONFIG['github']['milestone_id'])
+issues =
+  if CONFIG['github']['milestone_id']
+    octokit.list_issues("#{CONFIG['github']['name']}/#{CONFIG['github']['repos']}", milestone: CONFIG['github']['milestone_id'])
+  else
+    octokit.list_issues("#{CONFIG['github']['name']}/#{CONFIG['github']['repos']}")
+  end
 
 workspace = Asana::Workspace.all.first
 project = Asana::Project.find(CONFIG['asana']['project_id'])
